@@ -3,12 +3,13 @@ import json
 import requests
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
-r = None # Your code here
+url = "http://127.0.0.1:8000"
 
-# TODO: print the status code
-# print()
-# TODO: print the welcome message
-# print()
+r = requests.get(url)
+
+# print the status code and welcome message
+print(f"GET Request - Status Code: {r.status_code}")
+print(f"Response: {r.json()}")
 
 
 
@@ -29,10 +30,12 @@ data = {
     "native-country": "United-States",
 }
 
-# TODO: send a POST using the data above
-r = None # Your code here
+# Send a POST request to the inference endpoint
+post_url = "http://127.0.0.1:8000/data/"
+headers = {"Content-Type": "application/json"}
 
-# TODO: print the status code
-# print()
-# TODO: print the result
-# print()
+r = requests.post(post_url, data=json.dumps(data), headers=headers)
+
+# Print the status code and result of inference
+print(f"\nPOST Request - Status Code: {r.status_code}")
+print(f"Prediction: {r.json()}")

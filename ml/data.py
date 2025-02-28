@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, LabelBinarizer, StandardScaler
 
 
 def process_data(
